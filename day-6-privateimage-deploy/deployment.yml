@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: regapp-deployment
+  namespace: argocod
   labels: 
      app: regapp
 
@@ -33,6 +34,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: regapp-service
+  namespace: argocd
   labels:
     app: regapp 
 spec:
@@ -43,4 +45,4 @@ spec:
     - port: 3000
       targetPort: 3000
 
-  type: NodePort
+  type: LoadBalancer
